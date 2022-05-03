@@ -8,6 +8,8 @@ versions 3.6+.
 
 ## Usage
 
+run `python3 python/solve_all.py inputs outputs`                 
+
 ### Generating instances
 
 To generate instances, read through [`python/instance.py`](python/instance.py),
@@ -67,3 +69,6 @@ To visualize a solution file for this instance as well, you could run
 ```bash
 python3 visualize.py my_input.in --with-solution my_soln.out out.svg
 ```
+
+## Visualizing Instances
+

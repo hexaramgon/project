@@ -20,6 +20,9 @@ from solution import Solution
 # Modify this line to import your own solvers.
 # YOUR CODE HERE
 from solve import solve_naive
+from solve import solve_other_algorithm
+from solve import solve_algo_greedy
+
 
 
 class Size(enum.Enum):
@@ -32,11 +35,11 @@ def solver(size: Size, instance: Instance) -> Solution:
     # Modify this function to use your imported solvers.
     # YOUR CODE HERE
     if size == Size.SMALL:
-        return solve_naive(instance)
+        return solve_algo_greedy(instance)
     elif size == Size.MEDIUM:
-        return solve_naive(instance)
+        return solve_algo_greedy(instance)
     elif size == Size.LARGE:
-        return solve_naive(instance)
+        return solve_algo_greedy(instance)
 
 
 # You shouldn't need to modify anything below this line.
@@ -75,7 +78,7 @@ def main(args):
         outroot.mkdir(exist_ok=False)
         (outroot / Size.SMALL.value).mkdir(exist_ok=False)
         (outroot / Size.MEDIUM.value).mkdir(exist_ok=False)
-        (outroot / Size.LARGE.value).mkdir(exist_ok=False)
+        # (outroot / Size.LARGE.value).mkdir(exist_ok=False)
     except FileExistsError as e:
         print("===================== ERROR =====================")
         print("Output directory or subdirectory already exists!")

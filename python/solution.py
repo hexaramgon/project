@@ -18,6 +18,8 @@ class Solution:
     towers: List[Point]
     instance: Instance
 
+    
+
     def valid(self):
         """Determines whether a solution is valid.
 
@@ -39,6 +41,26 @@ class Solution:
                 return False
 
         return len(set(self.towers)) == len(self.towers)
+
+    
+    def validtweaked(self):
+        """Determines whether a solution is valid.
+
+        A solution is valid for a problem instance if its towers cover all
+        cities in the instance, all towers are in bounds, and there are no
+        duplicate towers.
+        """
+
+        badcities = []
+        for city in self.instance.cities:
+            for tower in self.towers:
+                if Point.distance_obj(city, tower) <= self.instance.coverage_radius:
+                    break
+            else:
+                badcities.append(city)
+
+        return badcities
+
 
     def deduplicate(self):
         """Removes duplicate towers from the solution."""
